@@ -6,7 +6,10 @@ module.exports.submit = async (req, res, next) => {
     const { externalOperations, expenses, attendance, inventory, tenderVendor, departmentalBudget, boardCompanyActivity, fragmanted, manualWork, highCost, consultants, complex, expensive, outdated, expectations, adopt, reduceTime, noCustomizationCost, reduceExpenditure, selfManaged, earlyAdopter, user } = data;
     console.log(user);
     try {
-        const userSubmit = await userModel.create(user);
+        let userSubmit = null;
+        if(user) {
+            userSubmit = await userModel.create(user);
+        }
         const surveySubmit = await surveyModel.create({
             respondent: userSubmit._id,
             externalOperations,
