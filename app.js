@@ -18,7 +18,19 @@ app.use(logger('dev'))
 app.set("view engine", "ejs")
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
-app.use(cors());
+// CORS configuration
+const allowedOrigins = ['http://localhost:3000', 'https://enterprise.amanbs.com'];
+
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+};
+app.use(cors(corsOptions));
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
