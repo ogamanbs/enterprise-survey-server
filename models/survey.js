@@ -123,10 +123,6 @@ const surveySchema = new mongoose.Schema({
     earlyAdopter: {
         type: Boolean
     },
-    dateAdded: {
-        type: Date,
-        default: new Date.now
-    }
 }, { timestamps: true });
 
 module.exports = mongoose.model('survey', surveySchema);

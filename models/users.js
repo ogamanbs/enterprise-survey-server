@@ -15,7 +15,8 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
     companySize: {
-        type: Number,
+        type: String,
+        trim: true
     },
     role: {
         type: String,
@@ -34,7 +35,7 @@ const userSchema = new mongoose.Schema({
     },
     shareWithInvestors: {
         type: Boolean
-    }
-});
+    },
+}, {timestamps: true});
 
 module.exports = mongoose.model('user', userSchema);

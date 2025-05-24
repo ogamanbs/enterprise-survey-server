@@ -4,6 +4,7 @@ const favicon = require('serve-favicon');
 const path = require('path');
 const cors = require('cors');
 const createError = require('http-errors');
+const cookieParser = require('cookie-parser');
 const app = express();
 
 require('./config/db-connection');
