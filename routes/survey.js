@@ -3,7 +3,7 @@ const router = express.Router();
 const { submit } = require('../controllers/surveyControllers/surveySubmittion');
 
 router.get('/', (req, res, next) => {
-    res.status(200).send('survey');
+    res.send('survey');
 });
 
 router.post('/submit', submit)
